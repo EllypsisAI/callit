@@ -42,8 +42,14 @@ export default function LoginPage() {
     setError(null);
 
     if (mode === "signup") {
-      if (!displayName.trim()) {
+      const trimmed = displayName.trim();
+      if (!trimmed) {
         setError("Brugernavn er påkrævet");
+        setLoading(false);
+        return;
+      }
+      if (trimmed.length < 2 || trimmed.length > 30) {
+        setError("Brugernavn skal være mellem 2 og 30 tegn");
         setLoading(false);
         return;
       }
