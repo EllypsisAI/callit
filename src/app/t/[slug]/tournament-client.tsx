@@ -78,7 +78,7 @@ const HOW_IT_WORKS_STEPS = [
   {
     icon: Coins,
     title: "Få 1.000 calls",
-    desc: "Opret en konto og få gratis startkapital",
+    desc: "Opret en konto og få 1.000 gratis calls",
   },
   {
     icon: Target,
@@ -92,8 +92,8 @@ const HOW_IT_WORKS_STEPS = [
   },
   {
     icon: BarChart3,
-    title: "Klatr på ranglisten",
-    desc: "Vind calls og bevis at du kalder det rigtigt",
+    title: "Top ranglisten",
+    desc: "Vind calls og vis hvem der kalder det rigtigt",
   },
 ];
 

@@ -133,7 +133,7 @@ export function PredictionSlip({
             <div className="flex items-center gap-2">
               <Zap className="h-4 w-4 text-primary" />
               <span className="font-display text-base font-semibold uppercase tracking-wider text-foreground">
-                Ny prediction
+                Nyt call
               </span>
             </div>
             <button
@@ -258,7 +258,7 @@ export function PredictionSlip({
 
           {/* Payout preview */}
           <div className="mx-5 mt-4 flex items-center justify-between rounded-xl border border-border bg-secondary/50 px-4 py-3">
-            <span className="text-xs text-muted">Potentiel udbetaling</span>
+            <span className="text-xs text-muted">Mulig gevinst</span>
             <div className="flex items-center gap-1.5">
               <ArrowRight className="h-3 w-3 text-muted" />
               <span
@@ -290,7 +290,7 @@ export function PredictionSlip({
             {state === "success" ? (
               <div className="flex items-center justify-center gap-2 rounded-xl bg-green-50 py-3.5 text-sm font-semibold text-success">
                 <CheckCircle2 className="h-4 w-4" />
-                Prediction placeret!
+                Call placeret!
               </div>
             ) : (
               <button
@@ -311,7 +311,7 @@ export function PredictionSlip({
                 ) : (
                   <>
                     <Zap className="h-4 w-4" />
-                    Placer prediction
+                    Placer call
                   </>
                 )}
               </button>

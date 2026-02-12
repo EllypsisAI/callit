@@ -1,5 +1,29 @@
 # CallIt — Progress Log
 
+## Session 5 — 2026-02-12
+
+### What we did
+**Phase 3: Polish — Copy polish + data reseed + resolve verification**
+
+1. **Danish copy polish** — full audit of all user-facing text across 7 files. Killed "prediction"/"forudsigelse" everywhere, standardized on "call" as the brand word. Fixed "Klatr på ranglisten" (not Danish lingo) → "Top ranglisten". Changed "Visningsnavn" → "Brugernavn", "Potentiel udbetaling" → "Mulig gevinst", "Tabte" → "Tabt", plus 10 more string fixes. All copy now speaks casual youth Danish + brand language.
+
+2. **Outright bets scoping** — discussed tournament-level markets (winner, finalist, most goals). Decision: **skip for now**. One lonely outright market in the UI would look half-baked. Revisit in v1.1 when there's enough content to justify the feature.
+
+3. **Fresh prediction seed data** — user deleted old matches/predictions and recreated matches. Reset all 20 fake profile balances to 1.000, then seeded:
+   - **Match 1** (completed, Dortmund won 2-4): 14 bets — 8 on Bayern (lost), 6 on Dortmund (won at ~2.71x). Fan names track realistically (JimilianSzn/xXSkinzXx went big on Bayern, HavErKing/KamalFansen backed Dortmund).
+   - **Match 2** (upcoming): 12 bets — 5 on Newcastle (450 pool), 7 on Aston Villa (700 pool). Payouts pending resolution.
+   - All balances consistent with stakes and payouts.
+
+4. **Resolve flow verified** — traced full chain: admin UI → API auth/admin check → `resolve_match` RPC → parimutuel payout calculation → balance credits. Confirmed working. Edge case (no winners) refunds all stakes.
+
+### Build status
+- `next build` passes clean, 0 errors
+
+### Next step
+- **Deploy to Vercel** — git init, first commit, connect to Vercel, ship it
+
+---
+
 ## Session 4 — 2026-02-12
 
 ### What we did

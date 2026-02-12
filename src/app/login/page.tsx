@@ -43,7 +43,7 @@ export default function LoginPage() {
 
     if (mode === "signup") {
       if (!displayName.trim()) {
-        setError("Visningsnavn er påkrævet");
+        setError("Brugernavn er påkrævet");
         setLoading(false);
         return;
       }
@@ -199,7 +199,7 @@ export default function LoginPage() {
                   htmlFor="displayName"
                   className="block text-sm font-medium text-muted mb-1.5"
                 >
-                  Visningsnavn
+                  Brugernavn
                 </label>
                 <input
                   id="displayName"

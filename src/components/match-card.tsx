@@ -281,7 +281,7 @@ export function MatchCard({
               <Zap className="h-3 w-3" />
               {userPrediction.payout != null && userPrediction.payout > 0
                 ? "Du vandt!"
-                : "Tabte"}
+                : "Tabt"}
             </span>
             <span className="tabular-nums text-muted">
               {formatDanishNumber(userPrediction.amount)} calls
@@ -306,7 +306,7 @@ export function MatchCard({
           <div className="flex items-center justify-between text-xs">
             <span className="flex items-center gap-1.5 font-medium text-primary">
               <Zap className="h-3 w-3" />
-              Din prediction: {userPickedA ? match.player_a : match.player_b}
+              Dit call: {userPickedA ? match.player_a : match.player_b}
             </span>
             <span className="tabular-nums text-muted">
               {formatDanishNumber(userPrediction.amount)} calls
@@ -547,7 +547,7 @@ export function MiniMatchCard({
       {userPrediction && (
         <div className="mt-1 flex items-center gap-1 text-[10px] font-medium text-primary">
           <Zap className="h-2.5 w-2.5" />
-          Predicted
+          Dit call
         </div>
       )}
     </button>

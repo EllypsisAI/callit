@@ -6,7 +6,7 @@ import { ArrowLeft, Trophy } from "lucide-react";
 
 export const metadata = {
   title: "Rangliste — CallIt",
-  description: "Se hvem der kalder det rigtigt. Top Caller i CallIt.",
+  description: "Se hvem der kalder det rigtigt. Top spillere i CallIt.",
 };
 
 export default async function LeaderboardPage() {
@@ -37,7 +37,7 @@ export default async function LeaderboardPage() {
               Rangliste
             </h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              Top {profiles?.length ?? 0} forudsigere
+              Top {profiles?.length ?? 0} spillere
             </p>
           </div>
 

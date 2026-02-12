@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props) {
     title: `${tournament.title} — CallIt`,
     description:
       tournament.description ??
-      "Forudsig resultater og konkurrér med andre fans.",
+      "Sæt dine calls og vis hvem der kalder det rigtigt.",
   };
 }
 

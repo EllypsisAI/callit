@@ -99,7 +99,7 @@ export default function LeaderboardTable({
       <div className="flex flex-col items-center justify-center py-20 text-center">
         <div className="mb-4 font-display text-4xl text-muted-foreground/30">---</div>
         <p className="font-display text-lg font-medium uppercase text-muted">
-          Ingen forudsigelser endnu
+          Ingen calls endnu
         </p>
         <p className="mt-1 text-sm text-muted-foreground">
           Vær den første!
