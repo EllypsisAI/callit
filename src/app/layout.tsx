@@ -33,6 +33,19 @@ export default async function RootLayout({
       <body>
         <NavBar user={user} profile={profile} />
         {children}
+        <footer className="py-6 text-center">
+          <p className="text-[10px] tracking-widest text-muted-foreground/30">
+            Made By{" "}
+            <a
+              href="https://ellypsis.dk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-muted-foreground/60"
+            >
+              @Ellypsis
+            </a>
+          </p>
+        </footer>
       </body>
     </html>
   );
