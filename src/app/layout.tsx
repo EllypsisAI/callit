@@ -33,7 +33,22 @@ export default async function RootLayout({
       <body>
         <NavBar user={user} profile={profile} />
         {children}
-        <footer className="py-6 text-center">
+        <footer className="py-6 text-center space-y-2">
+          <div className="flex items-center justify-center gap-3 text-[10px] tracking-widest text-muted-foreground/30">
+            <a
+              href="/privacy"
+              className="transition-colors hover:text-muted-foreground/60"
+            >
+              Privatliv
+            </a>
+            <span>|</span>
+            <a
+              href="/terms"
+              className="transition-colors hover:text-muted-foreground/60"
+            >
+              Vilkår
+            </a>
+          </div>
           <p className="text-[10px] tracking-widest text-muted-foreground/30">
             Made By{" "}
             <a

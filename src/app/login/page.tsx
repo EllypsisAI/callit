@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { Zap, ArrowLeft, Eye, EyeOff } from "lucide-react";
+import { Zap, ArrowLeft, Eye, EyeOff, Check } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -32,6 +32,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [resetSent, setResetSent] = useState(false);
+  const [ageConfirmed, setAgeConfirmed] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const router = useRouter();
   const supabase = createClient();
@@ -55,6 +57,16 @@ export default function LoginPage() {
       }
       if (password.length < 6) {
         setError("Adgangskoden skal være mindst 6 tegn");
+        setLoading(false);
+        return;
+      }
+      if (!ageConfirmed) {
+        setError("Du skal bekræfte at du er mindst 13 år");
+        setLoading(false);
+        return;
+      }
+      if (!termsAccepted) {
+        setError("Du skal acceptere vilkår og privatlivspolitik");
         setLoading(false);
         return;
       }
@@ -270,6 +282,65 @@ export default function LoginPage() {
                 </button>
               </div>
             </div>
+
+            {mode === "signup" && (
+              <div className="space-y-3">
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <button
+                    type="button"
+                    role="checkbox"
+                    aria-checked={ageConfirmed}
+                    onClick={() => setAgeConfirmed(!ageConfirmed)}
+                    className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors ${
+                      ageConfirmed
+                        ? "border-primary bg-primary"
+                        : "border-border bg-secondary group-hover:border-muted-foreground"
+                    }`}
+                  >
+                    {ageConfirmed && <Check className="h-3 w-3 text-white" />}
+                  </button>
+                  <span className="text-xs leading-relaxed text-muted">
+                    Jeg bekræfter at jeg er mindst 13 år gammel
+                  </span>
+                </label>
+
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <button
+                    type="button"
+                    role="checkbox"
+                    aria-checked={termsAccepted}
+                    onClick={() => setTermsAccepted(!termsAccepted)}
+                    className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors ${
+                      termsAccepted
+                        ? "border-primary bg-primary"
+                        : "border-border bg-secondary group-hover:border-muted-foreground"
+                    }`}
+                  >
+                    {termsAccepted && <Check className="h-3 w-3 text-white" />}
+                  </button>
+                  <span className="text-xs leading-relaxed text-muted">
+                    Jeg accepterer{" "}
+                    <Link
+                      href="/terms"
+                      target="_blank"
+                      className="text-primary hover:underline"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      vilkårene
+                    </Link>{" "}
+                    og{" "}
+                    <Link
+                      href="/privacy"
+                      target="_blank"
+                      className="text-primary hover:underline"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      privatlivspolitikken
+                    </Link>
+                  </span>
+                </label>
+              </div>
+            )}
 
             {error && <p className="text-sm text-destructive">{error}</p>}
 
