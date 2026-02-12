@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #F7F8FA;
+  --color-foreground: #0D1B2A;
+  --color-muted: #5C6B7A;
+  --color-muted-foreground: #8A95A3;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #0D1B2A;
+  --color-border: #E2E6EC;
+  --color-primary: #1B8B4C;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #F0F2F5;
+  --color-secondary-foreground: #0D1B2A;
+  --color-accent: #1B8B4C;
+  --color-destructive: #DC2626;
+  --color-success: #16A34A;
+  --color-gold: #D97706;
+  --color-gold-dim: #B45309;
+  --color-pitch: #1B8B4C;
+  --color-pitch-light: #22C55E;
+  --color-pitch-dark: #15803D;
+  --color-navy: #0D1B2A;
+  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Oswald", "Sora", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Pitch grass stripe texture (football field feel) ─── */
+.pitch-pattern {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 48px,
+      rgba(27, 139, 76, 0.018) 48px,
+      rgba(27, 139, 76, 0.018) 96px
+    );
+}
+
+/* ─── Gold shimmer for #1 rank ─── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(27, 139, 76, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(27, 139, 76, 0.4); }
+}
+
+@keyframes live-pulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(220, 38, 38, 0.2); }
+  50% { box-shadow: 0 0 18px rgba(220, 38, 38, 0.4); }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shimmer-gold {
+  background: linear-gradient(
+    110deg,
+    #D97706 0%,
+    #FBBF24 25%,
+    #D97706 50%,
+    #B45309 75%,
+    #D97706 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.glow-primary {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.glow-live {
+  animation: live-pulse 1.5s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.4s ease-out both;
+}
+
+/* ─── Subtle top-edge gradient for sections ─── */
+.pitch-gradient-top {
+  background: linear-gradient(180deg, rgba(27, 139, 76, 0.04) 0%, transparent 100%);
+}
+
+/* ─── Custom scrollbar for light theme ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground);
+}
+
+/* ─── Number input: hide spinners ─── */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

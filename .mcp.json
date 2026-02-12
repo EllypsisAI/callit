@@ -1,0 +1,23 @@
+{
+    "mcpServers": {
+        "context7": {
+            "type": "http",
+            "url": "https://mcp.context7.com/mcp",
+            "headers": {
+                "CONTEXT7_API_KEY": "REDACTED"
+            }
+        },
+        "perplexity": {
+            "type": "stdio",
+            "command": "npx",
+            "args": ["-y", "perplexity-mcp"],
+            "env": {
+                "PERPLEXITY_API_KEY": "REDACTED"
+            }
+        },
+        "supabase": {
+            "type": "http",
+            "url": "https://mcp.supabase.com/mcp"
+        }
+    }
+}
